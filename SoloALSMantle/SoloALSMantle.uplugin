@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SoloALSMantle",
+	"Description": "Originally made by LongmireLocomotion for ALSv4 and ported to c++ in the ALSv4 community version on github by Doga.",
+	"Category": "Other",
+	"CreatedBy": "SirKai",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "SoloALSMantle",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
