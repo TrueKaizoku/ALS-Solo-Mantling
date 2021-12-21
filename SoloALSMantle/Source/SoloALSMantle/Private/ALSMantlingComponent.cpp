@@ -135,6 +135,7 @@ void UALSMantlingComponent::MantleStart(float MantleHeight, const FALSComponentA
 		OwnerCharacter->GetMesh()->GetAnimInstance()->Montage_Play(MantleParams.AnimMontage, MantleParams.PlayRate,
 			EMontagePlayReturnType::MontageLength,
 			MantleParams.StartingPosition, false);
+		bIsMantling = true;
 	}
 }
 
@@ -220,7 +221,7 @@ bool UALSMantlingComponent::MantleCheck(const FALSMantleTraceSettings& TraceSett
 		DownTraceLocation, 2.0f, OwnerCharacter->GetCapsuleComponent());
 	const bool bCapsuleHasRoom = UALSMantleLibrary::CapsuleHasRoomCheck(OwnerCharacter->GetCapsuleComponent(),
 		CapsuleLocationFBase, 0.0f,
-		0.0f, EDrawDebugTrace::Type::None, bShowTraces);
+		0.0f, EDrawDebugTrace::Type::None, false);
 
 	if (!bCapsuleHasRoom)
 	{
@@ -338,6 +339,7 @@ void UALSMantlingComponent::MantleUpdate(float BlendIn)
 
 	// Step 4: Set the actors location and rotation to the Lerped Target.
 	OwnerCharacter->SetActorLocationAndRotation(LerpedTarget.GetLocation(), LerpedTarget.GetRotation().Rotator());
+	
 }
 
 void UALSMantlingComponent::MantleEnd()
@@ -350,6 +352,7 @@ void UALSMantlingComponent::MantleEnd()
 
 	// Enable ticking back after mantle ends
 	SetComponentTickEnabledAsync(true);
+	bIsMantling = false;
 }
 
 void UALSMantlingComponent::OnOwnerJumpInput()

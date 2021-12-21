@@ -42,8 +42,8 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ALS|Mantle System")
 		FALSMantleAsset GetMantleAsset(EALSMantleType MantleType);
 
-	UPROPERTY(BlueprintReadWrite, Category = "ALS|Mantle System")
-		bool  bShowTraces = false;
+	UPROPERTY(BlueprintReadOnly, Category = "ALS|Mantle System")
+		bool  bIsMantling = false;
 
 	UPROPERTY(BlueprintReadWrite, Category = "ALS|Mantle System")
 		bool HasMovementInput = false;
